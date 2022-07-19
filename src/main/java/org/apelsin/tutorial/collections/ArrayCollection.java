@@ -13,4 +13,24 @@ public class ArrayCollection {
         content=new Object[capacity];
     }
 
+    public Object get(int i){
+        return content[i];
+    }
+
+    public boolean isEmpty(){
+        int length = 0;
+        for(int i=0; i < capacity; i++){
+            if(content[i] == null){
+                length++;
+            }
+        }
+        return length == content.length;
+    }
+
+    public void clear(){
+        for(int i=0; i < capacity; i++){
+            content[i] = null;
+        }
+    }
+
 }
