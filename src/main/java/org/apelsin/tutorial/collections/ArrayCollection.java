@@ -34,8 +34,8 @@ public class ArrayCollection {
     }
 
     public void clear(){
-        this.content = null;
-        capacity = 0;
+        capacity = 10;
+        this.content = new Object[capacity];
     }
 
 }
