@@ -17,7 +17,7 @@ public class ArrayCollection {
 
     public boolean contains(Object value) {
         for (int i = 0; i < capacity; i++) {
-            if (Objects.equals(content[i], value)) {
+            if(value.hashCode() == content[i].hashCode() && Objects.equals(content[i], value) ) {
                 return true;
             }
         }
