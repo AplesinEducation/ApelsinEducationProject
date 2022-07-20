@@ -15,9 +15,10 @@ public class Task6Test {
     @Before
     public void init(){
        initialArray = new ArrayCollection() {{
-            insert(1);
-            insert(2);
-            insert(3);
+           pushBack(1);
+           pushBack(2);
+           pushBack(3);
+           pushBack("6");
         }};
        arrayToCheck1 = new Integer[]{2, 3};
        arrayToCheck2 = new Integer[]{3, 4, 6};
@@ -27,6 +28,8 @@ public class Task6Test {
     public void containsTest() {
         Assert.assertTrue(initialArray.contains(2));
         Assert.assertFalse(initialArray.contains(7));
+        Assert.assertFalse(initialArray.contains(6));
+        Assert.assertTrue(initialArray.contains("6"));
     }
 
     @Test

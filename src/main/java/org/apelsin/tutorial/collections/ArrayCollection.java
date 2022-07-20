@@ -33,15 +33,17 @@ public class ArrayCollection {
         return true;
     }
 
-    public void insert(Object item) {
+    public void pushBack(Object item) {
+        doubleContentLengthIfCapacityIsReached();
+        content[capacity++] = item;
+    }
+
+    public void doubleContentLengthIfCapacityIsReached() {
         if (content.length == capacity) {
             Object[] newContent = new Object[capacity * 2];
-            for (int i = 0; i < capacity; i++) {
-                newContent[i] = content[i];
-            }
+            System.arraycopy(content, 0, newContent, 0, capacity);
             content = newContent;
         }
-        content[capacity++] = item;
     }
 
 }
