@@ -22,8 +22,7 @@ public class ArrayCollection {
 
     public boolean isEmpty(){
         int length = 0;
-        Object[] obj = content;
-        if(obj == null || obj.length == 0){
+        if(Objects.isNull(content)){
             return true;
         }
         for(int i=0; i < capacity; i++){
