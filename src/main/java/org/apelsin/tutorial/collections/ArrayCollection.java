@@ -1,5 +1,7 @@
 package org.apelsin.tutorial.collections;
 
+import java.util.Objects;
+
 public class ArrayCollection {
     private Object[] content;
     private int capacity = 10;
@@ -14,11 +16,16 @@ public class ArrayCollection {
     }
 
     public Object get(int i){
+        Objects.checkIndex(i, capacity);
         return content[i];
     }
 
     public boolean isEmpty(){
         int length = 0;
+        Object[] obj = content;
+        if(obj == null || obj.length == 0){
+            return true;
+        }
         for(int i=0; i < capacity; i++){
             if(content[i] == null){
                 length++;
@@ -28,9 +35,8 @@ public class ArrayCollection {
     }
 
     public void clear(){
-        for(int i=0; i < capacity; i++){
-            content[i] = null;
-        }
+        this.content = null;
+        capacity = 0;
     }
 
 }
