@@ -5,6 +5,7 @@ import java.util.Objects;
 public class ArrayCollection {
     private Object[] content;
     private int capacity = 10;
+    private int size;
 
     public ArrayCollection(){
         content=new Object[capacity];
@@ -21,20 +22,15 @@ public class ArrayCollection {
     }
 
     public boolean isEmpty(){
-        int length = 0;
         if(Objects.isNull(content)){
             return true;
         }
-        for(int i=0; i < capacity; i++){
-            if(content[i] == null){
-                length++;
-            }
-        }
-        return length == content.length;
+        return size == 0;
     }
 
     public void clear(){
         capacity = 10;
+        size = 0;
         this.content = new Object[capacity];
     }
 
