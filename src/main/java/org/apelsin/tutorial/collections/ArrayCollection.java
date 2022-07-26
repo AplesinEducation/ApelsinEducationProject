@@ -17,7 +17,7 @@ public class ArrayCollection {
     }
 
     public Object get(int i){
-        Objects.checkIndex(i, capacity);
+        Objects.checkIndex(i, size);
         return content[i];
     }
 
