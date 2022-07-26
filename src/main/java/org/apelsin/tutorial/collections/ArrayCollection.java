@@ -8,22 +8,23 @@ public class ArrayCollection {
     private int capacity = 10;
 
     public ArrayCollection(){
-        content=new Object[capacity];
+        content = new Object[capacity];
     }
 
     public ArrayCollection(int capacity){
         this.capacity = capacity;
-        content=new Object[capacity];
+        content = new Object[capacity];
     }
 
-    public void add(Object obj) {
+    public boolean add(Object obj) {
         Integer firstNullIndex = getFirstNullIndex();
         content[firstNullIndex] = obj;
+        return true;
     }
 
     private int expandArray() {
         Object[] oldContent = Arrays.copyOf(content, content.length);
-        content = new Object [content.length + content.length / 2 + 1];
+        content = new Object[content.length + content.length / 2 + 1];
         System.arraycopy(oldContent, 0, content, 0, oldContent.length);
         return oldContent.length;
     }
