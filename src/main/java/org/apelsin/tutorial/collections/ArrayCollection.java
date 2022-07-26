@@ -23,7 +23,7 @@ public class ArrayCollection {
 
     private int expandArray() {
         Object[] oldContent = Arrays.copyOf(content, content.length);
-        content = new Integer[content.length + content.length / 2 + 1];
+        content = new Object [content.length + content.length / 2 + 1];
         System.arraycopy(oldContent, 0, content, 0, oldContent.length);
         return oldContent.length;
     }
