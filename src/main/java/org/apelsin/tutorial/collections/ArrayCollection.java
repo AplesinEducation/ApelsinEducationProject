@@ -1,6 +1,7 @@
 package org.apelsin.tutorial.collections;
 
 import javax.management.InstanceNotFoundException;
+import java.util.Collection;
 import java.util.Objects;
 
 public class ArrayCollection {
