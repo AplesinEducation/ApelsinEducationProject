@@ -1,5 +1,6 @@
 package org.apelsin.tutorial.collections;
 
+import javax.management.InstanceNotFoundException;
 import java.util.Objects;
 
 public class ArrayCollection {
@@ -46,4 +47,39 @@ public class ArrayCollection {
         }
     }
 
+    public Object remove(int index) throws InstanceNotFoundException {
+        if (index < 0 || index >= content.length)
+            throw new InstanceNotFoundException();
+        Object oldValue = content[index];
+        Object[] temp = new Object[content.length - 1];
+
+        for (int i = 0, j = 0; i < content.length; i++) {
+            if (i != index)
+                temp[j++] = content[i];
+        }
+
+        content = temp;
+        return oldValue;
+    }
+
+    public Object remove(Object value){
+        boolean found = false;
+        int indexOfValue = 0;
+        for (int i = 0; i < content.length; i++) {
+            if (content[i].equals(value)){
+                found = true;
+                indexOfValue = i;
+                break;
+            }
+        }
+        if (found){
+            Object[] temp = new Object[content.length - 1];
+            for (int i = 0, j = 0; i < content.length; i++) {
+                if (i != indexOfValue)
+                    temp[j++] = content[i];
+            }
+            content = temp;
+        }
+        return found;
+    }
 }
